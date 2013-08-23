@@ -31,7 +31,7 @@ function handleText(textNode)
 {
 	var v = textNode.nodeValue;
 
-    v = v.replace(/\bCompliance\b/g, "Penis");
+    	v = v.replace(/\bCompliance\b/g, "Penis");
 	v = v.replace(/\bcompliance\b/g, "penis");
 	
 	textNode.nodeValue = v;
