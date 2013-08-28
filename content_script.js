@@ -2,39 +2,67 @@ walk(document.body);
 
 function walk(node) 
 {
-	// I stole this function from here:
-	// http://is.gd/mwZp7E
-	
-	var child, next;
+  // I stole this function from here:
+  // http://is.gd/mwZp7E
 
-	switch ( node.nodeType )  
-	{
-		case 1:  // Element
-		case 9:  // Document
-		case 11: // Document fragment
-			child = node.firstChild;
-			while ( child ) 
-			{
-				next = child.nextSibling;
-				walk(child);
-				child = next;
-			}
-			break;
+  var child, next;
 
-		case 3: // Text node
-			handleText(node);
-			break;
-	}
-}
+  switch ( node.nodeType )  
+  {
+  case 1:  // Element
+  case 9:  // Document
+  case 11: // Document fragment
+    child = node.firstChild;
+    while ( child ) 
+    {
+      next = child.nextSibling;
+      walk(child);
+      child = next;
+    }
+    break;
 
-function handleText(textNode) 
-{
-	var v = textNode.nodeValue;
+  case 3: // Text node
+    handleText(node);
+    break;
+  default: // Nothing happened
+    break;
+  }
+  }
 
-    	v = v.replace(/\bCompliance\b/g, "Penis");
-	v = v.replace(/\bcompliance\b/g, "penis");
-	
-	textNode.nodeValue = v;
-}
+  function handleText(textNode) 
+  {
+    var v = textNode.nodeValue;
+    var penisesAr = [
+      'penis',
+      'dick',
+      'cock',
+      'dong',
+      'dildo',
+      'prick',
+      'johnson',
+      'rod',
+      'boner',
+      'weenie',
+      'meatsicle',
+      'phallus',
+      'schlong'
+    ];
+
+    /* choose a random dick from the length of the penises array 
+     * divide by two
+     * */
+    var randomDick = penisesAr[Math.floor( Math.random() * penisesAr.length )];
+
+    // insert joke 
+    v = v.replace(/\bcompliance\b/g, randomDick);
+
+    // just nip the tip for uppercase cocks
+    randomDick.charAt(0).toUpperCase() + randomDick.slice(1);
+
+    // Hold on
+    v = v.replace(/\bCompliance\b/g, randomDick);
+
+    textNode.nodeValue = v;
+  }
 
 
