@@ -59,11 +59,11 @@ function walk(node)
     // Hold on
     v = v.replace(/\bCompliance\b/g, randomDick);
     
-    randomDick.charAt(0).toLowerCase() + randomDick.slice(1);
-    
     // insert joke 
-    v = v.replace(/\bcompliance\b/g, randomDick);
+    v = v.replace(/\bcompliance\b/g, randomDick.toLowerCase() );
 
+    // SPEAK IN CAPS
+    v = v.replace(/\bCOMPLIANCE\b/g, randomDick.toUpperCase() )
 
     textNode.nodeValue = v;
   }
