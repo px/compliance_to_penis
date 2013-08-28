@@ -53,14 +53,17 @@ function walk(node)
      * */
     var randomDick = penisesAr[Math.floor( Math.random() * penisesAr.length )];
 
-    // insert joke 
-    v = v.replace(/\bcompliance\b/g, randomDick);
-
     // just nip the tip for uppercase cocks
-    randomDick.charAt(0).toUpperCase() + randomDick.slice(1);
+    randomDick = randomDick.charAt(0).toUpperCase() + randomDick.slice(1);
 
     // Hold on
     v = v.replace(/\bCompliance\b/g, randomDick);
+    
+    randomDick.charAt(0).toLowerCase() + randomDick.slice(1);
+    
+    // insert joke 
+    v = v.replace(/\bcompliance\b/g, randomDick);
+
 
     textNode.nodeValue = v;
   }
